@@ -51,40 +51,41 @@ def generate_report():
             Utilizar DictReader(csv_file).fieldnames para
             visualizar los headers a extraer
             '''
-            table.cell(0,0).text = ""
-            table.cell(0,1).text = ""
+            # Empty values; used as a buffer for sepparation
+            table.cell(0,0).text = "" # Leave empty
+            table.cell(0,1).text = "" # Leave empty
 
-            table.cell(0,2).text = "Control No."
+            # Header name (Column 1)
+            table.cell(0,2).text = ""
+            # CSV Header name (Column 2)
             table.cell(0,3).text = f"{count}"
-
-            # Columna izquierda: String values
-            table.cell(0,4).text = "Region"
-            # Columna derecha: CSV Fieldnames
-            table.cell(0,5).text = my_dict['REGION']
-
-            table.cell(0,6).text = "Severity"
-            table.cell(0,7).text = my_dict['CHECK_SEVERITY']
             
-            table.cell(0,8).text = "Result"
-            table.cell(0,9).text = my_dict['CHECK_RESULT']
+            table.cell(0,4).text = ""
+            table.cell(0,5).text = my_dict['']
 
-            table.cell(0,10).text = "Resource ID"
-            table.cell(0,11).text = my_dict['CHECK_RESOURCE_ID']
+            table.cell(0,6).text = ""
+            table.cell(0,7).text = my_dict['']
+            
+            table.cell(0,8).text = ""
+            table.cell(0,9).text = my_dict['']
 
-            table.cell(0,12).text = "Description"
-            table.cell(0,13).text = my_dict['TITLE_TEXT']
+            table.cell(0,10).text = ""
+            table.cell(0,11).text = my_dict['']
 
-            table.cell(0,14).text = "Finding"
-            table.cell(0,15).text = my_dict['CHECK_RESULT_EXTENDED']
+            table.cell(0,12).text = ""
+            table.cell(0,13).text = my_dict['']
 
-            table.cell(0,16).text = "Associated Risk"
-            table.cell(0,17).text = my_dict['CHECK_RISK']
+            table.cell(0,14).text = ""
+            table.cell(0,15).text = my_dict['']
 
-            table.cell(0,18).text = "Remediation"
-            table.cell(0,19).text = my_dict['CHECK_REMEDIATION']
+            table.cell(0,16).text = " "
+            table.cell(0,17).text = my_dict['']
 
-            table.cell(0,20).text = "AWS Documentation URL"
-            table.cell(0,21).text = my_dict['CHECK_DOC']
+            table.cell(0,18).text = ""
+            table.cell(0,19).text = my_dict['']
+
+            table.cell(0,20).text = "" 
+            table.cell(0,21).text = my_dict['']
 
 
             count += 1

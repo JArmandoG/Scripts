@@ -1,6 +1,5 @@
 #!/bin/bash
 ACCOUNT_B_GROUP_NAME='auditor-crossAccount' # Already Existing Group
-ACCOUNT_B_POLICY_FILE='B_assumeRole_Smart.json' # *
 ACCOUNT_B_POLICY_FILE='sl-policy.json' # Created by script B-0
 
 aws --profile default iam put-group-policy \

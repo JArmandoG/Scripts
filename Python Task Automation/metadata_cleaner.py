@@ -4,6 +4,8 @@ import pprint
 from PyPDF2 import PdfFileReader, PdfFileWriter
 import sys
 
+# Scraping metadata from pdf files and overwrites them with custom fields (key/value pairs)
+# Usage: metadata_cleaner.py input_file.pdf
 
 # reading pdf file
 try:

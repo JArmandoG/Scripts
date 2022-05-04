@@ -1,6 +1,6 @@
 # Backing up user settings & User extensions
 
-To-Do: Linux settings & Windows
+To-Do: Linux & Windows settings 
 ---
 
 ## 1: Backup user settings:

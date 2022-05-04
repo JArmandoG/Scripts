@@ -6,22 +6,12 @@ import smtplib
 import time
 import sys
 
-email_subject = "Gracias"
-message = """
+smtp_password = ""
+username = ""
+smtphost = "" # Format: smtp.example.com:25
 
-<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
-<style>
-body {
-    font-family: 'DM Sans';font-size: 22px;
-}
-</style>
-
-<tr> <td> <img alt="dp-banner" src="https://github.com/JArmandoG/files/blob/main/Screen%20Shot%202022-03-31%20at%2012.18.28.png?raw=true" width="100%" style="margin: 0; border: 0; padding: 0; display: block;"> </td> </tr>
-<p>Este ejercicio fue realizado en un ambiente controlado, pero puede ser explotado por un tercero. Para evitar que esto suceda, recomendamos aplicar las configuraciones de seguridad adecuadas DKIM, DMARC, SPF para el correo electrónico.<br>
-Para mayor información, ponte en contacto con un representante de Delta Protect.
-<br>
-Atentamente,<br>El equipo de Delta Protect</p>
-
+email_subject = ""
+message = """ 
 """
 
 def check_email_valid(email):
@@ -74,12 +64,12 @@ def _sendmail(msg):
         print(f"[i] Sending email:")
         time.sleep(0.5)
         print(f"\tfrom \t{sys.argv[1]}\n\tto\t{sys.argv[2]}\n")
-        rel_p = "9zfPTjxZQt4YHCqI"
-        username = "johndonym123@gmail.com"
-        smtphost = "smtp-relay.sendinblue.com:587"
+        # PARAMS START
+
+        ###
         server = smtplib.SMTP(smtphost)
         server.starttls()
-        server.login(username, rel_p)
+        server.login(username, smtp_password)
         server.sendmail(msg['From'], msg['To'], msg.as_string())
         server.quit()
         print("[+] Successfully sent email message to %s:" % (msg['To']))
@@ -87,6 +77,6 @@ def _sendmail(msg):
         print("[-] Error sending mail:")
         print(Exception)
 
-remitente, destinatario = _prepare_args()
-msg = _prepare_email(message, remitente, destinatario, email_subject)
-sendemail = _sendmail(msg)
+sender, recipient = _prepare_args()
+msg = _prepare_email(message, sender, recipient, email_subject)
+sendemail = _sendmail(msg, smtp_password, username, smtphost)

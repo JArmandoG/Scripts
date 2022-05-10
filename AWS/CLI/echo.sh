@@ -12,6 +12,7 @@ function _CHECK_PROGRAM () {
 				echo " !  $1 not installed or on the user's path. Exiting... " && exit 1 || \
 				echo " - Ok"
 }
+
 _CHECK_PROGRAM aws
 _CHECK_PROGRAM awk
 _CHECK_PROGRAM sed
@@ -59,4 +60,4 @@ aws iam create-role \
 ROLE_ARN=$(aws iam list-roles | grep assumeRole-Role | grep Arn | sed 's/"//g' | sed 's/,//' | awk '{print $2}')
 echo "------------------------"
 echo "[i] Role ARN: $ROLE_ARN"
-rm $JSON_FILE && echo "[x] Deleted $JSON_FILE"
+rm $JSON_FILE && echo "[+] Deleted $JSON_FILE"
